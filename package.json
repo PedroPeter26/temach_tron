@@ -4,10 +4,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
-    "build": "tsc && cp -R src/data src/resources dist/",
-    "prestart": "npm run build"
+    "build": "tsc && cp src/data/*.json dist/data/ && cp -R src/resources dist/",
+    "prepare": "npm run build"
   },
   "keywords": [],
   "author": "",
