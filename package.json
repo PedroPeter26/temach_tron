@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node build/index.js",
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc && tsc-alias",
+    "build": "tsc --noEmitOnError && tsc-alias",
     "copy-assets": "cp -R public build/ || true",
     "prepare": "npm run build && npm run copy-assets"
   },
