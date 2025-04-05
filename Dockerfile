@@ -1,14 +1,14 @@
-FROM node:22
+FROM node:22-bookworm-slim
 
 WORKDIR /app
 
-# 1. Copiar primero solo los archivos necesarios para instalar dependencias
-COPY package.json package-lock.json ./
+# 1. Copiar archivos de dependencias primero
+COPY package.json package-lock.json tsconfig.json ./
 
-# 2. Instalar TODAS las dependencias (incluyendo devDependencies)
-RUN npm install
+# 2. Instalar dependencias (incluyendo devDependencies)
+RUN npm install --include=dev
 
-# 3. Copiar el resto de los archivos
+# 3. Copiar el resto de archivos
 COPY . .
 
 # 4. Compilar el proyecto
