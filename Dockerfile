@@ -1,20 +1,18 @@
-FROM node:22-bookworm-slim
+FROM node:22
+
 WORKDIR /app
 
-# Instala dependencias de construcción esenciales
-RUN apt-get update && apt-get install -y \
-    git \
-    python3 \
-    make \
-    g++ \
-    && rm -rf /var/lib/apt/lists/*
-
-# Primero copia solo los archivos para instalar dependencias
+# 1. Copiar primero solo los archivos necesarios para instalar dependencias
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
 
-# Luego copia el resto y construye
+# 2. Instalar TODAS las dependencias (incluyendo devDependencies)
+RUN npm install
+
+# 3. Copiar el resto de los archivos
 COPY . .
+
+# 4. Compilar el proyecto
 RUN npm run build
 
+# 5. Comando de inicio
 CMD ["npm", "start"]
