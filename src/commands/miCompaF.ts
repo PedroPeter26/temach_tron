@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 // Configuración de rutas
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const VIDEO_PATH = path.join(__dirname, '../resources/videos/mi_compa_usted_estando_Farid.mp4');
+const VIDEO_PATH = path.join(__dirname, '../../public/assets/videos/mi_compa_usted_estando_Farid.mp4');
 
 export default {
     name: 'micompaf',

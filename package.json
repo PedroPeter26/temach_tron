@@ -1,13 +1,14 @@
 {
   "name": "temach_tron",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node build/index.js",
     "dev": "tsx watch src/index.ts",
-    "build": "tsc && cp src/data/*.json dist/data/ && cp -R src/resources dist/",
-    "prepare": "npm run build"
+    "build": "tsc && tsc-alias",
+    "copy-assets": "cp -R src/assets build/ || true",
+    "prepare": "npm run build && npm run copy-assets"
   },
   "keywords": [],
   "author": "",
@@ -19,9 +20,9 @@
     "@typescript-eslint/parser": "^8.28.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.23.0",
-    "nodemon": "^3.1.9",
+    "lru-cache": "^11.1.0",
     "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.13",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   },

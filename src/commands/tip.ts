@@ -1,5 +1,5 @@
 import { Message } from 'discord.js';
-import tipsData from '../data/tips.json';
+import tipsData from '../../public/data/tips.json';
 
 export default {
     name: 'tip',

@@ -1,5 +1,5 @@
 import { Message } from 'discord.js';
-import dichosData from '../data/dichos.json';
+import dichosData from '../../public/data/dichos.json';
 
 export default {
     name: 'dicho',
